@@ -13,12 +13,14 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { useNavigate } from 'react-router-dom'
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
 function Nav() {
+    const navigate = useNavigate()
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -159,9 +161,9 @@ function Nav() {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            <MenuItem onClick={handleCloseUserMenu}>Account</MenuItem>
-                            <MenuItem onClick={handleCloseUserMenu}>Dashboard</MenuItem>
+                            <MenuItem onClick={handleCloseUserMenu}>Profile</MenuItem>
                             <MenuItem onClick={handleCloseUserMenu}>Logout</MenuItem>
+                            <MenuItem onClick={() => navigate('/signup')}>Register</MenuItem>
                         </Menu>
                     </Box>
                 </Toolbar>
